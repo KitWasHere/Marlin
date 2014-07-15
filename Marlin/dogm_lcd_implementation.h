@@ -120,8 +120,14 @@ static void lcd_implementation_init()
 	u8g.setRot270();	// Rotate screen by 270°
 #endif
 
-   
+#if MOTHERBOARD == 7   
 	u8g.firstPage();
+	do {
+			// Ultimaker init bmp
+			u8g.drawBitmapP(0,0,START_BMP_UM_BYTEWIDTH,START_BMP_UM_HEIGHT,start_bmp_um);
+	   } while( u8g.nextPage() );
+#else
+		u8g.firstPage();
 	do {
 			// RepRap init bmp
 			u8g.drawBitmapP(0,0,START_BMPBYTEWIDTH,START_BMPHEIGHT,start_bmp);
@@ -141,7 +147,9 @@ static void lcd_implementation_init()
 			u8g.drawStr90(92,57,"8");
 			u8g.drawStr(100,61,"glib");
 	   } while( u8g.nextPage() );
+#endif	
 }
+
 
 static void lcd_implementation_clear()
 {
@@ -603,5 +611,4 @@ static void lcd_implementation_quick_feedback()
 #endif
 }
 #endif//ULTRA_LCD_IMPLEMENTATION_DOGM_H
-
 
