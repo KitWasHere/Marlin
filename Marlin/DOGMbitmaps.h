@@ -1,3 +1,4 @@
+
 #if MOTHERBOARD == 7         //Splash screen for Ultimaker
 #define START_BMP_UM_WIDTH 	128	//Width in pixels
 #define START_BMP_UM_HEIGHT 	64	//Height in pixels
